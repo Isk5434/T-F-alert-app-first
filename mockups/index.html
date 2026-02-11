@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track & Field Alerts - Fade Theme</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <span class="material-icons">menu</span>
+            <h1>T&F ALERTS</h1>
+            <span class="material-icons" onclick="location.href='notifications.html'">notifications_none</span>
+        </header>
+
+        <!-- Hero: Main Alert -->
+        <section class="hero-section">
+            <div class="glass-card hero-card" onclick="location.href='detail.html?id=0'">
+                <div class="hero-image-overlay"></div>
+
+                <div class="status-badge">重要</div>
+
+                <div class="hero-content">
+                    <h2 class="hero-title">日本選手権<br>要項変更</h2>
+                    <p class="hero-subtitle">競技時間が大幅に変更されました。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feed List -->
+        <section class="feed-section">
+            <div class="feed-connector"></div>
+
+            <p class="section-label">LATEST ACTIVITY</p>
+
+            <!-- Item 1 -->
+            <div class="feed-item" onclick="location.href='detail.html?id=1'">
+                <div class="feed-time-indicator">
+                    <div class="orb"></div>
+                    <span class="time-text">たった今</span>
+                </div>
+                <div class="feed-content">
+                    <span class="tag">日本陸連</span>
+                    <h3 class="feed-title">要項PDF更新</h3>
+                    <p class="feed-desc">男子100mの標準記録が変更されました。</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="feed-item" onclick="location.href='detail.html?id=2'">
+                <div class="feed-time-indicator">
+                    <div class="orb"></div>
+                    <span class="time-text">2時間前</span>
+                </div>
+                <div class="feed-content">
+                    <span class="tag">東京陸協</span>
+                    <h3 class="feed-title">スタートリスト公開</h3>
+                    <p class="feed-desc">東京都春季大会の番組編成が確定しました。</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="feed-item" onclick="location.href='detail.html?id=3'">
+                <div class="feed-time-indicator">
+                    <div class="orb"></div>
+                    <span class="time-text">昨日</span>
+                </div>
+                <div class="feed-content">
+                    <span class="tag">神奈川陸協</span>
+                    <h3 class="feed-title">開催可否の通知</h3>
+                    <p class="feed-desc">雨天予報ですが予定通り開催されます。</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <span class="material-icons">dashboard</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+                <span class="material-icons">calendar_today</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <span class="material-icons">analytics</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="material-icons">person_outline</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>

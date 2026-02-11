@@ -1,0 +1,124 @@
+openapi: 3.0.0
+info:
+  title: Track & Field Alerts API (PoC)
+  version: 1.0.0
+  description: 陸上競技情報通知アプリの簡易API仕様
+
+servers:
+  - url: https://api.track-alerts-poc.example.com/v1
+
+paths:
+  /users/me/preferences:
+    get:
+      summary: ユーザー設定取得
+      description: 監視対象の種目、県、通知設定を取得
+    put:
+      summary: ユーザー設定更新
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prefectures:
+                  type: array
+                  items: { type: string }
+                  description: 監視対象の陸協ID (例 ["tokyo", "kanagawa"])
+                events:
+                  type: array
+                  items: { type: string }
+                  description: 専門種目 (例 ["100m", "long_jump"])
+                notification_channels:
+                  type: object
+                  properties:
+                    push: { type: boolean }
+                    line: { type: boolean }
+                    email: { type: boolean }
+
+  /alerts:
+    get:
+      summary: 通知一覧取得 (ダッシュボード用)
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, default: 20 }
+        - name: importance
+          in: query
+          schema: { type: string, enum: [HIGH, MID, LOW, ALL] }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Alert'
+
+  /alerts/{alertId}:
+    get:
+      summary: 通知詳細取得
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertDetail'
+
+  /calendar/events:
+    get:
+      summary: カレンダーイベント取得
+      description: 大会日程、エントリー期限等のリスト
+      parameters:
+        - name: start_date
+          in: query
+          schema: { type: string, format: date }
+        - name: end_date
+          in: query
+          schema: { type: string, format: date }
+
+  /share/generate:
+    post:
+      summary: 共有リンク生成
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alertId: { type: string }
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shareUrl: { type: string, description: "公開用共有URL" }
+                  shareText: { type: string, description: "SNS投稿用テンプレート文" }
+
+components:
+  schemas:
+    Alert:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        summary: { type: string }
+        orgName: { type: string }
+        importance: { type: string, enum: [HIGH, MID, LOW] }
+        detectedAt: { type: string, format: date-time }
+        isRead: { type: boolean }
+    
+    AlertDetail:
+      allOf:
+        - $ref: '#/components/schemas/Alert'
+        - type: object
+          properties:
+            originalUrl: { type: string }
+            diffContent:
+              type: object
+              properties:
+                before: { type: string }
+                after: { type: string }
+                impactAnalysis: { type: string }
+            relatedEventId: { type: string }

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Track & Field Alerts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Profile Specific Styles */
+        .profile-header {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .avatar-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .athlete-name {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .athlete-id {
+            color: var(--secondary-text);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin: 25px 20px 10px;
+            text-transform: uppercase;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--secondary-text);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .stat-sub {
+            font-size: 0.6rem;
+            color: var(--accent-purple);
+        }
+
+        /* Toggle Switch */
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+        }
+
+        .toggle-switch.active {
+            background-color: var(--accent-cyan);
+        }
+
+        .toggle-switch.active::after {
+            left: 22px;
+            background-color: #000;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-dark {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            color: white;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .input-dark:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+
+        <div class="profile-header">
+            <img src="https://images.unsplash.com/photo-1552674605-469523170d9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                alt="Athlete" class="avatar-large">
+            <h2 class="athlete-name">TANAKA KAKERU</h2>
+            <span class="athlete-id">JAAF ID: 12345678</span>
+        </div>
+
+        <!-- Happy Feature 1: Performance Management -->
+        <p class="section-title">Performance</p>
+        <div style="padding: 0 20px;">
+            <div class="glass-card" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <span style="color: var(--accent-cyan); font-size: 0.9rem;">Mens 100m</span>
+                    <span style="font-size: 0.8rem; color: var(--secondary-text);">Target: 10.30</span>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-label">PERSONAL BEST</span>
+                        <div class="stat-value">10.42</div>
+                        <span class="stat-sub">2023.09.20</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">SEASON BEST</span>
+                        <div class="stat-value">10.58</div>
+                        <span class="stat-sub">2024.05.03</span>
+                    </div>
+                </div>
+
+                <!-- Motivation Feature: Countdown -->
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 10px;">
+                    <span class="stat-label">NEXT RACE</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: white;">関東インカレ (国立)</span>
+                        <span style="color: var(--accent-cyan); font-weight: bold;">あと 14日</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Site Selection -->
+        <p class="section-title">Monitoring Sites (監視設定)</p>
+        <div style="padding: 0 20px;">
+            <div class="glass-card" style="padding: 10px 20px;">
+                <div class="setting-item">
+                    <span>日本陸上競技連盟 (JAAF)</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="setting-item">
+                    <span>東京陸上競技協会</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="setting-item">
+                    <span>神奈川陸上競技協会</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="setting-item">
+                    <span>関東学生陸上競技連盟</span>
+                    <div class="toggle-switch"></div>
+                </div>
+                <!-- Interactive Add Button -->
+                <div
+                    style="text-align: center; padding-top: 10px; color: var(--accent-cyan); font-size: 0.8rem; cursor: pointer;">
+                    <span class="material-icons" style="font-size: 14px; vertical-align: middle;">add</span> サイトを追加リクエスト
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <p class="section-title">Notifications (通知)</p>
+        <div style="padding: 0 20px 40px 20px;">
+            <div class="glass-card" style="padding: 10px 20px;">
+                <div class="setting-item">
+                    <span>重要速報 (Push)</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="setting-item">
+                    <span>LINE連携</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="setting-item">
+                    <span>メール要約</span>
+                    <div class="toggle-switch"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <span class="material-icons">dashboard</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="material-icons">calendar_today</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="material-icons">analytics</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <span class="material-icons">person_outline</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // Simple Toggle Interaction
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

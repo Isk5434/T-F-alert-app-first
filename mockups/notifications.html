@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Track & Field Alerts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <header class="app-header">
+            <span class="material-icons" onclick="history.back()">arrow_back</span>
+            <h1>NOTIFICATIONS</h1>
+            <span class="material-icons" style="color: var(--accent-cyan);">notifications_active</span>
+        </header>
+
+        <div style="padding: 0 20px;">
+            <p class="section-label">NEW</p>
+
+            <div class="glass-card"
+                style="padding: 15px; margin-bottom: 15px; border-left: 3px solid var(--accent-cyan);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span class="tag">SYSTEM</span>
+                    <span style="font-size: 0.7rem; color: var(--secondary-text);">10 min ago</span>
+                </div>
+                <h3 class="feed-title" style="font-size: 0.9rem;">標準記録の整合性チェック</h3>
+                <p class="feed-desc" style="white-space: normal;">あなたのPBは日本選手権の新しいC標準記録を突破しています。エントリー可能です。</p>
+            </div>
+
+            <p class="section-label">EARLIER</p>
+
+            <div class="glass-card" style="padding: 15px; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span class="tag" style="color: var(--accent-purple);">KANAGAWA</span>
+                    <span style="font-size: 0.7rem; color: var(--secondary-text);">Yesterday</span>
+                </div>
+                <h3 class="feed-title" style="font-size: 0.9rem;">記録会中止のお知らせ</h3>
+                <p class="feed-desc" style="white-space: normal;">12日の記録会は降雪のため中止となりました。</p>
+            </div>
+
+            <div class="glass-card" style="padding: 15px; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span class="tag">JAAF</span>
+                    <span style="font-size: 0.7rem; color: var(--secondary-text);">2 days ago</span>
+                </div>
+                <h3 class="feed-title" style="font-size: 0.9rem;">ルール改正について</h3>
+                <p class="feed-desc" style="white-space: normal;">シューズの厚底規定に関する新しい解釈が発表されました。</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

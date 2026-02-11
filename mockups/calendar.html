@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - Track & Field Alerts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .month-label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 0 20px;
+        }
+
+        .day-label {
+            color: var(--secondary-text);
+            font-size: 0.7rem;
+            margin-bottom: 10px;
+        }
+
+        .day-cell {
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            position: relative;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .day-cell.active {
+            background: var(--accent-cyan);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .event-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 6px;
+        }
+
+        .event-list {
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+
+        <header class="app-header">
+            <span class="material-icons" onclick="location.href='index.html'">arrow_back</span>
+            <h1>CALENDAR</h1>
+            <span class="material-icons" onclick="location.href='notifications.html'">notifications_none</span>
+        </header>
+
+        <div class="calendar-header">
+            <span class="material-icons">chevron_left</span>
+            <span class="month-label">February 2026</span>
+            <span class="material-icons">chevron_right</span>
+        </div>
+
+        <div class="week-grid">
+            <div class="day-label">SUN</div>
+            <div class="day-label">MON</div>
+            <div class="day-label">TUE</div>
+            <div class="day-label">WED</div>
+            <div class="day-label">THU</div>
+            <div class="day-label">FRI</div>
+            <div class="day-label">SAT</div>
+
+            <!-- Empty cells for start of month -->
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <!-- Days -->
+            <div class="day-cell">1</div>
+            <div class="day-cell">2</div>
+            <div class="day-cell">3</div>
+            <div class="day-cell">4</div>
+            <div class="day-cell">5</div>
+            <div class="day-cell">6</div>
+            <div class="day-cell">7</div>
+            <div class="day-cell">8</div>
+            <div class="day-cell">9</div>
+            <div class="day-cell">10</div>
+            <div class="day-cell active">
+                11
+                <div class="event-dot" style="background: #fff;"></div>
+            </div>
+            <div class="day-cell">12</div>
+            <div class="day-cell">13</div>
+            <div class="day-cell">
+                14
+                <div class="event-dot"></div>
+            </div>
+            <div class="day-cell">15</div>
+            <div class="day-cell">16</div>
+            <div class="day-cell">17</div>
+            <div class="day-cell">18</div>
+            <div class="day-cell">19</div>
+            <div class="day-cell">20</div>
+            <div class="day-cell">21</div>
+            <div class="day-cell">22</div>
+            <div class="day-cell">23</div>
+            <div class="day-cell">24</div>
+            <div class="day-cell">
+                25
+                <div class="event-dot" style="background: var(--accent-cyan);"></div>
+            </div>
+            <div class="day-cell">26</div>
+            <div class="day-cell">27</div>
+            <div class="day-cell">28</div>
+        </div>
+
+        <div class="event-list">
+            <p class="section-title">EVENTS ON FEB 11</p>
+
+            <div class="feed-item" onclick="location.href='detail.html?id=0'">
+                <div class="feed-time-indicator" style="min-width: 60px;">
+                    <span class="time-text">09:00</span>
+                    <div class="orb"></div>
+                </div>
+                <div class="feed-content">
+                    <span class="tag">JAAF</span>
+                    <h3 class="feed-title">日本選手権</h3>
+                    <p class="feed-desc">要項変更につきスケジュール確認必須</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <span class="material-icons">dashboard</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <span class="material-icons">calendar_today</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <span class="material-icons">analytics</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="material-icons">person_outline</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>

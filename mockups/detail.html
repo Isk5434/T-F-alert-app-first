@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>詳細 - Track & Field Alerts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container" style="padding-bottom: 0;">
+
+        <a href="index.html" class="btn-back">
+            <span class="material-icons">arrow_back</span>
+        </a>
+
+        <!-- Header Image Area -->
+        <div class="detail-header">
+            <img src="https://images.unsplash.com/photo-1532444458054-0188dd1e5cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Track" class="detail-bg">
+        </div>
+
+        <!-- Glass Card Content -->
+        <div class="detail-content-container">
+            <div class="glass-card detail-card">
+                <h1 id="detail-title"
+                    style="font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; line-height: 1.3;">
+                    日本選手権<br>要項変更
+                </h1>
+
+                <div class="detail-meta">
+                    <div>
+                        <span class="detail-label">ORGANIZER</span>
+                        <span class="detail-value" id="detail-org">JAAF</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">DATE</span>
+                        <span class="detail-value">2026.02.11</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">IMPACT</span>
+                        <span class="detail-value" style="color: var(--accent-cyan);">HIGH</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <span class="detail-label">AI ANALYSIS</span>
+                    <p id="detail-summary"
+                        style="font-weight: 400; line-height: 1.8; color: #E0E0E0; font-size: 0.95rem; margin-top: 10px;">
+                        読み込み中...
+                    </p>
+                </div>
+
+                <a href="#" id="source-link" class="btn-primary" target="_blank">
+                    原文PDFを開く
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Simple mock data loader
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        const data = {
+            '0': {
+                title: '日本選手権\n要項変更',
+                org: '日本陸連',
+                summary: '競技開始時刻が 9:30 から 9:00 に繰り上げられました。これに伴い招集完了時刻も変更されています。遠征計画の再確認を推奨します。',
+                url: 'https://www.jaaf.or.jp/'
+            },
+            '1': {
+                title: '要項PDF\n更新のお知らせ',
+                org: '日本陸連',
+                summary: '男子100mの参加標準記録Aが変更されました (10.05 → 10.00)。エントリー期間に変更はありません。資格記録の有効期限内かどうか再確認してください。',
+                url: 'https://www.jaaf.or.jp/'
+            },
+            '2': {
+                title: 'スタートリスト\n公開',
+                org: '東京陸協',
+                summary: '東京都春季競技会の番組編成が確定しました。男子100mは全25組、女子走幅跳は2ピットで行われます。ご自身の組とレーンを確認してください。',
+                url: 'https://tokyork.jp/'
+            },
+            '3': {
+                title: '開催可否\nについて',
+                org: '神奈川陸協',
+                summary: '明日の記録会は降雨予報ですが、予定通り開催されます。気温が低いため、十分なウォーミングアップと防寒対策を行ってください。',
+                url: 'https://kanagawariku.org/'
+            }
+        };
+
+        if (data[id]) {
+            document.getElementById('detail-title').innerText = data[id].title;
+            document.getElementById('detail-org').innerText = data[id].org;
+            document.getElementById('detail-summary').innerText = data[id].summary;
+            document.getElementById('source-link').href = data[id].url;
+        }
+    </script>
+</body>
+
+</html>

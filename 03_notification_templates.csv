@@ -1,0 +1,10 @@
+type,priority,title_template,body_template,action_url,note
+push,HIGH,🚨【重要】{event_name}の要項が変更されました,「{changed_item}」が更新されました。エントリー資格に関わる可能性があります。今すぐ確認してください。,app://alerts/{id},緊急性の高い変更
+push,MID,⚠️ {org_name}から新しい大会情報があります,{event_name}のエントリーが{start_date}から開始されます。準備はできていますか？,app://calendar/{id},エントリー開始等の予告
+push,LOW,ℹ️ リザルト公開: {event_name},{event_date}開催の{event_name}の結果が公開されました。,app://results/{id},結果公開通知
+email,HIGH,【重要確認】{event_name}：要項変更のお知らせ（Track & Field Alerts）,{user_name}様\n\nいつもご利用ありがとうございます。\n\n以下の大会要項等に重要な変更がありました。\n\n■ 対象大会\n{event_name}\n\n■ 変更点\n{summary_diff}\n\n■ 影響度: 高\n今回の変更は、参加資格や競技時間に影響する可能性があります。\n必ず以下のリンクから原文をご確認ください。\n\n[原文を確認する]({source_url})\n\n[アプリで詳細を見る]({app_deep_link})\n\n---\nTrack & Field Alerts,メールは詳細な差分を含める
+email,MID,【お忘れではないですか？】{event_name}のエントリー期限,{user_name}様\n\n{event_name}のエントリー締め切りまであと3日です。\n\n■ 期限\n{deadline_date}\n\n手続きがお済みでない場合は、お急ぎください。\n\n[カレンダーを確認]({app_deep_link}),リマインダーメール
+email,LOW,週刊まとめ：{org_name}の新着情報,{user_name}様\n\n今週の{org_name}および関連団体の更新情報まとめです。\n\n・{news_title_1}\n・{news_title_2}\n・{news_title_3}\n\n詳細はダッシュボードからご確認ください。\n\n[ダッシュボードへ]({app_dashboard_url}),週次ダイジェスト
+slack,HIGH,🚨 *【重要】{event_name} の変更検知*\n\n*変更内容*: {summary_short}\n*対象*: {category_tags}\n\n要項が更新されました。チーム内への周知をお願いします。\n<{source_url}|原文を見る> | <{share_url}|共有用ページ>,SlackはMarkdown対応
+slack,MID,📅 *エントリー開始: {event_name}*\n\n本日よりエントリー受付が開始されました。\n期限: {deadline_date} まで\n\n<{entry_url}|大会ページへ>,チーム共有向け
+line,HIGH,🚨重要なお知らせ\n\n{event_name}の要項に変更がありました！\n\n変更箇所：\n{change_point}\n\nエントリーに影響する可能性があります。必ず確認してください。\n\n▼ 詳細・原文\n{short_url},LINEは短文でインパクト重視
